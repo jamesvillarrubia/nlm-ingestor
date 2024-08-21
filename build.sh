@@ -19,6 +19,14 @@ docker push nasamadi/madi-parser-nlm:latest
 docker push nasamadi/madi-parser-nlm:amd64
 docker push nasamadi/madi-parser-nlm:arm64
 
+docker tag nasamadi/madi-parser-nlm:amd64 us-east4-docker.pkg.dev/hq-madi-dev-4ebd7d92/docker-images/madi-parsers-nlm:amd64
+docker tag nasamadi/madi-parser-nlm:amd64 us-east4-docker.pkg.dev/hq-madi-test-2ca538ff/docker-images/madi-parsers-nlm:amd64
+docker tag nasamadi/madi-parser-nlm:amd64 us-east4-docker.pkg.dev/hq-madi-prod-9ba9fedc/docker-images/madi-parsers-nlm:amd64
+docker push us-east4-docker.pkg.dev/hq-madi-dev-4ebd7d92/docker-images/madi-parsers-nlm:amd64
+docker push us-east4-docker.pkg.dev/hq-madi-test-2ca538ff/docker-images/madi-parsers-nlm:amd64
+docker push us-east4-docker.pkg.dev/hq-madi-prod-9ba9fedc/docker-images/madi-parsers-nlm:amd64
+
+
 # docker run -it --rm nasamadi/madi-parser-nlm:latest
 
 
