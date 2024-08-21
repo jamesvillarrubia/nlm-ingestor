@@ -39,42 +39,28 @@ jobs:
         tags: nasamadi/madi-parser-nlm:latest
         cache-from: type=gha
         cache-to: type=gha,mode=max
+        push: true
     
     - name: Build Docker image (amd64)
       uses: docker/build-push-action@v3
       with:
         context: .
         platforms: linux/amd64
-        tags: nasamadi/madi-parser-nlm:amd64
+        tags: |
+          nasamadi/madi-parser-nlm:amd64
+          us-east4-docker.pkg.dev/hq-madi-dev-4ebd7d92/docker-images/madi-parsers-nlm:amd64
+          us-east4-docker.pkg.dev/hq-madi-test-2ca538ff/docker-images/madi-parsers-nlm:amd64
+          us-east4-docker.pkg.dev/hq-madi-prod-9ba9fedc/docker-images/madi-parsers-nlm:amd64
         cache-from: type=gha
         cache-to: type=gha,mode=max
+        push: true
 
     - name: Build Docker image (arm64)
       uses: docker/build-push-action@v3
       with:
         context: .
         platforms: linux/arm64
-        tags: nasamadi/madi-parser-nlm:arm64
+        tags: nasamadi/madi-parser-nlm:arm64,
         cache-from: type=gha
         cache-to: type=gha,mode=max
-
-    - name: Push Docker image to Docker Hub (latest)
-      run: |
-        docker push nasamadi/madi-parser-nlm:latest
-
-    - name: Push Docker image to GCR (amd64)
-      run: |
-        docker tag nasamadi/madi-parser-nlm:amd64 us-east4-docker.pkg.dev/hq-madi-dev-4ebd7d92/docker-images/madi-parsers-nlm:amd64
-        docker tag nasamadi/madi-parser-nlm:amd64 us-east4-docker.pkg.dev/hq-madi-test-2ca538ff/docker-images/madi-parsers-nlm:amd64
-        docker tag nasamadi/madi-parser-nlm:amd64 us-east4-docker.pkg.dev/hq-madi-prod-9ba9fedc/docker-images/madi-parsers-nlm:amd64
-        docker push us-east4-docker.pkg.dev/hq-madi-dev-4ebd7d92/docker-images/madi-parsers-nlm:latest
-        docker push us-east4-docker.pkg.dev/hq-madi-test-2ca538ff/docker-images/madi-parsers-nlm:latest
-        docker push us-east4-docker.pkg.dev/hq-madi-prod-9ba9fedc/docker-images/madi-parsers-nlm:latest
-
-    - name: Push Docker image to Docker Hub (amd64)
-      run: |
-        docker push nasamadi/madi-parser-nlm:amd64
-
-    - name: Push Docker image to Docker Hub (arm64)
-      run: |
-        docker push nasamadi/madi-parser-nlm:arm64
+        push: true
