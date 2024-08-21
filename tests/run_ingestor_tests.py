@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 from minio import Minio
 from pymongo import MongoClient
 
-from ingestor import ingest_and_render_file
+from nlm_ingestor.ingestor import ingest_and_render_file
 
 db_client = MongoClient(os.getenv("MONGO_HOST", "localhost"))
 db = db_client[os.getenv("MONGO_DATABASE", "doc-store-dev")]
