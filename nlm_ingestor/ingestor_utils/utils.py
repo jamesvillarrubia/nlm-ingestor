@@ -5,6 +5,11 @@ import numpy as np
 from nltk import load
 from nltk import PunktSentenceTokenizer
 
+import nltk
+
+# Add custom NLTK data path if needed
+nltk.data.path.append('/app/nltk_data')
+print(nltk.data.find("tokenizers/punkt/english.pickle"))
 
 nltk_abbs = load("tokenizers/punkt/{}.pickle".format("english"))._params.abbrev_types
 

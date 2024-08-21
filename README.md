@@ -36,12 +36,27 @@ java -jar <path_to_nlm_ingestor>/jars/tika-server-standard-nlm-modified-2.9.2_v2
 ```
 3. Install the ingestor
 ```
-!pip install nlm-ingestor
+pip install nlm-ingestor
 ```
 4. Run the ingestor
 ```
 python -m nlm_ingestor.ingestion_daemon
 ```
+
+### Run Locally to Contribute
+1. Git clone the repo
+1. Run `pip install -r requirements.txt`
+1. Run `python -m nltk.downloader stopwords`
+1. Run `python -m nltk.downloader punkt`
+1. Run `sh run.sh`
+
+For OSX, you may also need to install some locally libs:
+```shell
+brew install libxml2 libxslt libmagic openjdk@17 tesseract wget git unzip
+```
+
+
+
 ### Run the docker file
 A docker image is available via public github container registry. 
 
